@@ -1,11 +1,12 @@
 import { v4 as uuid } from "uuid";
-import { Entity, PrimaryColumn, Column } from "typeorm";
+import { Entity, Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "./User";
 
 @Entity("contato")
 class Contact {
 
-    @PrimaryColumn()
-    readonly idcontato: string;
+    @PrimaryGeneratedColumn('increment')
+    readonly idcontato: number;
 
     @Column()
     nome: string;
@@ -16,14 +17,10 @@ class Contact {
     @Column()
     email: string;
 
+    @JoinColumn({ name: "usuario" })
+    @ManyToOne(() => User)
     @Column()
     usuario: string;
-
-    constructor() {
-        if (!this.idcontato) {
-            this.idcontato = uuid();
-        }
-    }
 }
 
 export { Contact };

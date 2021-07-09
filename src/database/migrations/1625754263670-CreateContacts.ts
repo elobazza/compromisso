@@ -9,12 +9,12 @@ export class CreateContacts1625754263670 implements MigrationInterface {
                 columns: [
                     {
                         name: "idcontato",
-                        type: "uuid",
+                        type: "serial",
                         isPrimary: true,
                     },
                     {
                         name: "usuario",
-                        type: "uuid",
+                        type: "integer",
                     },
                     {
                         name: "nome",

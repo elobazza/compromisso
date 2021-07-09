@@ -9,16 +9,16 @@ export class CreateCompromises1625754566878 implements MigrationInterface {
                 columns: [
                     {
                         name: "idcompromisso",
-                        type: "uuid",
+                        type: "serial",
                         isPrimary: true,
                     },
                     {
                         name: "idcontato",
-                        type: "uuid",
+                        type: "integer",
                     },
                     {
                         name: "usuario",
-                        type: "uuid",
+                        type: "integer",
                     },
                     {
                         name: "descricao",

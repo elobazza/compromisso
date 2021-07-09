@@ -1,11 +1,10 @@
-import { v4 as uuid } from "uuid";
-import { Entity, PrimaryColumn, Column } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("usuario")
 class User {
 
-    @PrimaryColumn()
-    readonly idusuario: string;
+    @PrimaryGeneratedColumn('increment')
+    readonly idusuario: number;
 
     @Column()
     nome: string;
@@ -15,12 +14,6 @@ class User {
 
     @Column()
     senha: string;
-
-    constructor() {
-        if (!this.idusuario) {
-            this.idusuario = uuid();
-        }
-    }
 }
 
 export { User };
