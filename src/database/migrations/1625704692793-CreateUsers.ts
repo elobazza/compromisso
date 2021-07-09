@@ -14,15 +14,15 @@ export class CreateUsers1625704692793 implements MigrationInterface {
                     },
                     {
                         name: "nome",
-                        type: "varchar",
+                        type: "varchar(50)",
                     },
                     {
                         name: "username",
-                        type: "varchar",
+                        type: "varchar(10)",
                     },
                     {
                         name: "senha",
-                        type: "varchar",
+                        type: "varchar(8)",
                     }
                 ],
             })

@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { AuthenticateUserController } from "./controllers/AuthenticateUserController";
 import { CreateCompromiseController } from "./controllers/CreateCompromiseController";
 import { CreateContactController } from "./controllers/CreateContactController";
 import { CreateUserController } from "./controllers/CreateUserController";
@@ -38,5 +39,9 @@ router.put("/contact/:id", updateContactController.handle);
 
 const listCompromisesByDateController = new ListCompromisesByDateController();
 router.get("/compromises/:dataInicio/:dataFim", listCompromisesByDateController.handle);
+
+const authenticateUserController = new AuthenticateUserController();
+router.post("/login", authenticateUserController.handle);
+
 
 export { router };
