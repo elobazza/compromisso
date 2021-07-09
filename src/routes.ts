@@ -4,7 +4,10 @@ import { CreateContactController } from "./controllers/CreateContactController";
 import { CreateUserController } from "./controllers/CreateUserController";
 import { DeleteCompromiseController } from "./controllers/DeleteCompromiseController";
 import { ListCompromisesByContactController } from "./controllers/ListCompromisesByContactController";
+import { ListCompromisesByDateController } from "./controllers/ListCompromisesByDateController";
 import { ListCompromisesController } from "./controllers/ListCompromisesController";
+import { ListContactsByNameController } from "./controllers/ListContactsByNameController";
+import { UpdateContactController } from "./controllers/UpdateContactController";
 
 
 const router = Router();
@@ -27,5 +30,13 @@ router.get("/compromises/:id", listCompromisesByContactController.handle);
 const deleteCompromiseController = new DeleteCompromiseController();
 router.delete("/compromise/:id", deleteCompromiseController.handle);
 
+const listContactsByNameController = new ListContactsByNameController();
+router.get("/contacts/:name", listContactsByNameController.handle);
+
+const updateContactController = new UpdateContactController();
+router.put("/contact/:id", updateContactController.handle);
+
+const listCompromisesByDateController = new ListCompromisesByDateController();
+router.get("/compromises/:dataInicio/:dataFim", listCompromisesByDateController.handle);
 
 export { router };
