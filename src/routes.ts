@@ -25,6 +25,9 @@ router.post("/compromises", createCompromiseController.handle);
 const listCompromisesController = new ListCompromisesController();
 router.get("/compromises", listCompromisesController.handle);
 
+const listCompromisesByDateController = new ListCompromisesByDateController();
+router.get("/compromises/date", listCompromisesByDateController.handle);
+
 const listCompromisesByContactController = new ListCompromisesByContactController();
 router.get("/compromises/:id", listCompromisesByContactController.handle);
 
@@ -32,13 +35,10 @@ const deleteCompromiseController = new DeleteCompromiseController();
 router.delete("/compromise/:id", deleteCompromiseController.handle);
 
 const listContactsByNameController = new ListContactsByNameController();
-router.get("/contacts/:name", listContactsByNameController.handle);
+router.get("/contacts/name", listContactsByNameController.handle);
 
 const updateContactController = new UpdateContactController();
 router.put("/contact/:id", updateContactController.handle);
-
-const listCompromisesByDateController = new ListCompromisesByDateController();
-router.get("/compromises/:dataInicio/:dataFim", listCompromisesByDateController.handle);
 
 const authenticateUserController = new AuthenticateUserController();
 router.post("/login", authenticateUserController.handle);

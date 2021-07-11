@@ -4,12 +4,12 @@ import { ListContactsByNameService } from "../services/ListContactsByNameService
 class ListContactsByNameController {
     async handle(request: Request, response: Response) {
 
-        const { name } = request.params;
+        const { name } = request.query;
 
         const listContactsService = new ListContactsByNameService();
 
         const contacts = await listContactsService.execute(
-            name
+            name.toString()
         );
 
         return response.json(contacts);
